@@ -209,8 +209,41 @@ def find_greater_numbers2(lista):
 
 find_greater_numbers2([6,1,2,7])
 
+def reverse_vowels(st):
+    indexi = []
+    vrednosti = []
+    for i in enumerate(st):
+        if i[1] in ('a','e','i','o','u','A','E','I','O','U'):
+            indexi.append(i[0])
+            vrednosti.append(i[1])
+    st = list(st)
+    for i in enumerate(reversed(indexi)):
+        st[i[1]] = vrednosti[i[0]] 
+        
+    return("".join(st))
+reverse_vowels("Reverse Vowels In A String")
 
 
+def three_odd_numbers(ls):
+    for i in enumerate(ls):
+        if i[0]+2 < len(ls):
+            if sum(x for x in ls[i[0]:i[0]+3])%2!=0:
+                return True
+    return False
+
+
+print(three_odd_numbers([5,2,1]))
+
+def mode(ls):
+    k = {x : ls.count(x) for x in ls}
+    maximum = max(k)
+    for x in k.items():
+        if x[1] == maximum:
+            return x[0]
+        
+    
+
+print(mode([2,4,1,2,3,3,4,4,5,4,4,6,4,6,7,4]))
 
 # if __name__ == '__main__':
 #     import timeit
